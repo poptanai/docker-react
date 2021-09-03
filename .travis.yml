@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t poptanai/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run poptanai/docker-react npm run -- --coverage
+
